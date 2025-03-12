@@ -3,14 +3,30 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import os
+
+# Trouver le chemin absolu du fichier en fonction du répertoire actuel
+chemin_data = os.path.join(os.path.dirname(__file__), '../creditcard.csv')
+
+print(chemin_data)  # Vérifier que le chemin est correct
+
+
+from pathlib import Path
+
+# Trouver le chemin absolu du fichier CSV
+chemin_data = Path(__file__).parent / '..' / 'creditcard.csv'
+
+# Vérifier si le fichier existe
+if chemin_data.exists():
+    print("Fichier trouvé :", chemin_data)
+else:
+    print("Fichier introuvable.")
 
 
 # Charger les données
 @st.cache_data
 def load_data():
-    DATA_PATH = "../creditcard.csv"
-    print(DATA_PATH)
-    df = pd.read_csv(DATA_PATH)
+    df = pd.read_csv(chemin_data)
     return df
 
 df = load_data()
