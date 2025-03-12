@@ -3,18 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-import os
-
-# Chemin absolu du fichier
-chemin_fichier = os.path.abspath("../creditcard.csv")
-
-print()
 
 
 # Charger les données
 @st.cache_data
 def load_data():
-    DATA_PATH = chemin_fichier
+    DATA_PATH = "../creditcard.csv"
     print(DATA_PATH)
     df = pd.read_csv(DATA_PATH)
     return df
