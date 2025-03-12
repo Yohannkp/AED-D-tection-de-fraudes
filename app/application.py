@@ -8,8 +8,8 @@ import seaborn as sns
 # Charger les données
 @st.cache_data
 def load_data():
-    file_path = "../creditcard.csv"
-    df = pd.read_csv(file_path)
+    DATA_PATH = "../creditcard.csv"
+    df = pd.read_csv(DATA_PATH)
     return df
 
 df = load_data()
